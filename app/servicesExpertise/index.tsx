@@ -2,12 +2,12 @@ import { useNavigation } from "expo-router";
 import { useEffect } from "react";
 import { Text, View } from "react-native";
 
-export default function Home() {
+export default function ServicesExpertise() {
   const navigation = useNavigation();
 
   useEffect(() => {
     navigation.setOptions({
-      title: "Home"
+      title: "Services & Expertise"
     });
   }, [navigation]);
 
@@ -19,7 +19,7 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        <Text>Edit app/index.tsx to edit this screen.</Text>
+        <Text>Services & Expertise</Text>
       </View>
   );
 }

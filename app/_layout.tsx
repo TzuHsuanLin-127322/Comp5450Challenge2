@@ -9,6 +9,18 @@ export default function RootLayout() {
         <Drawer.Screen
           name='index'
         />
+        <Drawer.Screen
+          name='aboutMe'
+        />
+        <Drawer.Screen
+          name='salesPerformance'
+        />
+        <Drawer.Screen
+          name='servicesExpertise'
+        />
+        <Drawer.Screen
+          name='testimonials'
+        />
       </Drawer>
     </GestureHandlerRootView>
   );
