@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, Dimensions, Animated } from 'react-native';
-import { Easing } from 'react-native';
+import { Animated, Dimensions, Easing, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 interface TestimonialProps {
     quote: string;

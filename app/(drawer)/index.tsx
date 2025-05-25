@@ -27,9 +27,9 @@ export default function Home() {
     router.push('/servicesExpertise');
   }
 
-  const onTestimonialsPress = () => {
-    console.log('Testimonials');
-    router.push('/testimonials');
+  const onCustomerSatisfactionPress = () => {
+    console.log('CustomerSatisfaction');
+    router.push('/customerSatisfaction');
   } 
 
   return (
@@ -126,10 +126,21 @@ export default function Home() {
           </TouchableOpacity>
           <TouchableOpacity
             style={[{ flex: 1, }, homePortalButton, centered]}
-            onPress={onTestimonialsPress}
+            onPress={onCustomerSatisfactionPress}
           >
-            <Ionicons name="star-outline" size={48} color={themeColors.secondary} style={{ marginBottom: 8 }} />
-            <Text style={{ color: themeColors.secondary }}>Testimonials</Text>
+            <Ionicons
+              name="star-outline"
+              size={48}
+              color={themeColors.secondary}
+              style={{ marginBottom: 8 }}
+            />
+            <Text
+              style={{
+                color: themeColors.secondary,
+                fontSize: 16,
+                fontWeight: 'bold'
+              }}>
+                Testimonials</Text>
           </TouchableOpacity>
         </View>
       </View>

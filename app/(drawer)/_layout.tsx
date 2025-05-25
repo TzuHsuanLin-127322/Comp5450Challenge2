@@ -66,10 +66,10 @@ const topBarIcons = () => (
             }}
           />
           <Drawer.Screen
-            name='testimonials/index'
+            name='customerSatisfaction/index'
             options={{
-              drawerLabel: 'Testimonials',
-              title: 'Testimonials',
+              drawerLabel: 'Customer Satisfaction',
+              title: 'Customer Satisfaction',
               headerRight: topBarIcons,
             }}
           />
