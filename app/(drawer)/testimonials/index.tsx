@@ -2,6 +2,19 @@ import React, { useEffect, useRef } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, Dimensions, Animated } from 'react-native';
 import { Easing } from 'react-native';
 
+interface TestimonialProps {
+    quote: string;
+    author: string;
+    imageSrc: string;
+}
+
+interface ClientStoryProps {
+    storyNumber: number;
+    imageSrc: string;
+    title: string;
+    content: string;
+}
+
 const CustomerSatisfaction = () => (
     <View style={styles.satisfactionContainer}>
         <Image
@@ -19,7 +32,7 @@ const CustomerSatisfaction = () => (
     </View>
 );
 
-const Testimonial = ({ quote, author, imageSrc }) => (
+const Testimonial = ({ quote, author, imageSrc }: TestimonialProps) => (
     <View style={styles.testimonialContainer}>
         <View style={styles.testimonialContent}>
             <Text style={styles.quoteText}>{`"${quote}"`}</Text>
@@ -32,7 +45,7 @@ const Testimonial = ({ quote, author, imageSrc }) => (
     </View>
 );
 
-const ClientStory = ({ storyNumber, imageSrc, title, content }) => (
+const ClientStory = ({ storyNumber, imageSrc, title, content }: ClientStoryProps) => (
     <View style={styles.clientStoryContainer}>
         <View style={styles.storyImageContainer}>
             <Image
@@ -130,7 +143,7 @@ const CustomerReviews = () => {
         <ScrollView style={styles.container}
                     contentContainerStyle={{ paddingBottom: 40 }}>
             <View style={styles.section}>
-                <Text style={[styles.sectionHeader, { marginTop: 60 }]}>Customer Satisfaction</Text>
+                <Text style={[styles.sectionHeader, { marginTop: 40 }]}>Customer Satisfaction</Text>
                 <CustomerSatisfaction />
                 <Text style={styles.descriptionText}>
                     On my platform, I'm thrilled to have an average rating of 4.9/5, which
