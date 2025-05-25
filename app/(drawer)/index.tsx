@@ -140,7 +140,7 @@ export default function Home() {
                 fontSize: 16,
                 fontWeight: 'bold'
               }}>
-                Testimonials</Text>
+                Customer Satisfaction</Text>
           </TouchableOpacity>
         </View>
       </View>
