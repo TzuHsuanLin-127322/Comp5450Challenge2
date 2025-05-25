@@ -1,7 +1,7 @@
-import { themeColors } from "@/components/commonStyle";
+import { commonStyle, themeColors } from "@/components/commonStyle";
 import { router } from "expo-router";
 import { useState } from "react";
-import { Button, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const PURPOSE_OPTIONS = [
   'Buy',
@@ -94,13 +94,26 @@ export default function ContactMeModal() {
         }}
         multiline={true}
       />
-      <Button
-        title="Submit"
-        color={themeColors.secondary}
+      <TouchableOpacity
+        style={[
+          {
+            backgroundColor: themeColors.secondary,
+            padding: 8,
+            borderRadius: 100,
+          }, commonStyle.centered,
+        ]}
         onPress={() => {
           router.back()
         }}
-      />
+      >
+        <Text
+          style={{
+            color: 'white',
+            fontSize: 14,
+            fontWeight: 'bold',
+          }}
+        >SUBMIT</Text>
+      </TouchableOpacity>
     </ScrollView>
   )
 }

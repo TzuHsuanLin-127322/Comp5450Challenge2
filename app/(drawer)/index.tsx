@@ -139,8 +139,7 @@ export default function Home() {
                 color: themeColors.secondary,
                 fontSize: 16,
                 fontWeight: 'bold'
-              }}>
-                Customer Satisfaction</Text>
+              }}>Customer Satisfaction</Text>
           </TouchableOpacity>
         </View>
       </View>
