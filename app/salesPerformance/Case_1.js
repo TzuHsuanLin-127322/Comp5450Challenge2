@@ -24,7 +24,7 @@ export default function StoryMatchingRightCar() {
 
       {/* 2-1 */}
       <View style={styles.cardRow}>
-        <Image source={require('../assets/images/analysis_pie.png')} style={styles.icon} />
+        <Image source={require('../../assets/images/analysis_pie.png')} style={styles.icon} />
         <Text style={styles.mainText}>
           Helped with a side-by-side spec comparison of three models.
         </Text>
@@ -32,7 +32,7 @@ export default function StoryMatchingRightCar() {
 
       {/* 2-2 */}
       <View style={styles.cardRow}>
-        <Image source={require('../assets/images/analysis_table.png')} style={styles.icon} />
+        <Image source={require('../../assets/images/analysis_table.png')} style={styles.icon} />
         <Text style={styles.mainText}>
           Used internal tools to show price trends and explained the value of a certified-used model over a new base trim.
         </Text>
@@ -40,15 +40,15 @@ export default function StoryMatchingRightCar() {
 
       {/* 结果 & 引用 */}
       <Text style={styles.sectionHeader}>Result & Customer Quote</Text>
-      <Image source={require('../assets/images/customer_key.png')} style={styles.customerImg} resizeMode="cover" />
+      <Image source={require('../../assets/images/customer_key.png')} style={styles.customerImg} resizeMode="cover" />
 
       <View style={styles.quoteCard}>
-        <Image source={require('../assets/images/quoteMark.png')} style={styles.quoteIcon} />
+        <Image source={require('../../assets/images/quoteMark.png')} style={styles.quoteIcon} />
         <Text style={styles.quote}>
           “You didn't just sell me a car.
           {'\n'}You helped me avoid making the wrong one.”
         </Text>
-        <Image source={require('../assets/images/closing_quote_icon.png')} style={styles.quoteIcon} />
+        <Image source={require('../../assets/images/closing_quote_icon.png')} style={styles.quoteIcon} />
       </View>
     </ScrollView>
   );

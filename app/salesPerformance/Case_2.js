@@ -24,7 +24,7 @@ export default function Case2Story() {
 
       {/* Needs Assessment */}
       <View style={styles.cardRow}>
-        <Image source={require('../assets/images/analysis_pie.png')} style={styles.icon} />
+        <Image source={require('../../assets/images/analysis_pie.png')} style={styles.icon} />
         <Text style={styles.mainText}>Needs Assessment</Text>
       </View>
       <Text style={styles.description}>
@@ -33,7 +33,7 @@ export default function Case2Story() {
 
       {/* Model Comparison */}
       <View style={styles.cardRow}>
-        <Image source={require('../assets/images/analysis_table.png')} style={styles.icon} />
+        <Image source={require('../../assets/images/analysis_table.png')} style={styles.icon} />
         <Text style={styles.mainText}>Model Comparison Chart</Text>
       </View>
       <Text style={styles.description}>
@@ -42,15 +42,15 @@ export default function Case2Story() {
 
       {/* 3. 结果 & 引用 */}
       <Text style={styles.sectionHeader}>3. Result & Customer Quote</Text>
-      <Image source={require('../assets/images/customer_mom_kid.png')} style={styles.customerImg} />
+      <Image source={require('../../assets/images/customer_mom_kid.png')} style={styles.customerImg} />
 
       <View style={styles.quoteCard}>
-        <Image source={require('../assets/images/quoteMark.png')} style={styles.quoteIcon} />
+        <Image source={require('../../assets/images/quoteMark.png')} style={styles.quoteIcon} />
         <Text style={styles.quote}>
           “I thought upgrading would be stressful and expensive.{'\n'}
           But Ashley made it feel like a milestone, not a burden.”
         </Text>
-        <Image source={require('../assets/images/closing_quote_icon.png')} style={styles.quoteIcon} />
+        <Image source={require('../../assets/images/closing_quote_icon.png')} style={styles.quoteIcon} />
       </View>
       <Text style={styles.quoteSource}>— Family car buyer, Toronto</Text>
     </ScrollView>
