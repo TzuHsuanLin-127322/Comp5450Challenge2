@@ -1,6 +1,30 @@
+import { commonStyle } from "@/components/commonStyle";
+import { Ionicons } from "@expo/vector-icons";
 import { Drawer } from "expo-router/drawer";
 import React from "react";
+import { TouchableOpacity } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+const topBarIcons = () => (
+    <>
+      <TouchableOpacity
+        style={[commonStyle.iconButton]}
+        onPress={() => {
+          console.log("person-circle-outline");
+        }}
+      >
+        <Ionicons name="person-circle-outline" size={24} color="black" />
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[commonStyle.iconButton]}
+        onPress={() => {
+          console.log("pencil-outline");
+        }}
+      >
+        <Ionicons name="pencil" size={24} color="black" />
+      </TouchableOpacity>
+    </>
+  )
 
 export default function RootLayout() {
   return(
@@ -8,18 +32,44 @@ export default function RootLayout() {
       <Drawer >
         <Drawer.Screen
           name='index'
+          options={{
+            drawerLabel: 'Home',
+            title: 'Home',
+            headerRight: topBarIcons,
+          }}
+          
         />
         <Drawer.Screen
-          name='aboutMe'
+          name='aboutMe/index'
+          options={{
+            drawerLabel: 'About Me',
+            title: 'About Me',
+            headerRight: topBarIcons,
+          }}
         />
         <Drawer.Screen
-          name='salesPerformance'
+          name='salesPerformance/index'
+          options={{
+            drawerLabel: 'Sales Performance',
+            title: 'Sales Performance',
+            headerRight: topBarIcons,
+          }}
         />
         <Drawer.Screen
-          name='servicesExpertise'
+          name='servicesExpertise/index'
+          options={{
+            drawerLabel: 'Services & Expertise',
+            title: 'Services & Expertise',
+            headerRight: topBarIcons,
+          }}
         />
         <Drawer.Screen
-          name='testimonials'
+          name='testimonials/index'
+          options={{
+            drawerLabel: 'Testimonials',
+            title: 'Testimonials',
+            headerRight: topBarIcons,
+          }}
         />
       </Drawer>
     </GestureHandlerRootView>
