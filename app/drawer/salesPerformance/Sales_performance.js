@@ -29,9 +29,9 @@ const COLORS = {
 
 /* ---------- 静态导入仪表盘图片 ---------- */
 const GAUGE_IMAGES = [
-  require('../../assets/images/gauge_1.png'),
-  require('../../assets/images/gauge_2.png'),
-  require('../../assets/images/gauge_3.png'),
+  require('@/assets/images/gauge_1.png'),
+  require('@/assets/images/gauge_2.png'),
+  require('@/assets/images/gauge_3.png'),
 ];
 
 /* ---------- 主页面 ---------- */
@@ -40,8 +40,8 @@ export default function SalesImpactDashboard() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const carouselData = [
-    { img: require('../../assets/images/sales_growth.png') },
-    { img: require('../../assets/images/inventory_cost_savings.png') },
+    { img: require('@/assets/images/sales_growth.png') },
+    { img: require('@/assets/images/inventory_cost_savings.png') },
   ];
 
   /* 自动轮播 */
@@ -110,7 +110,7 @@ function SuccessStories() {
       {/* 卡片 1 */}
       <View style={successStyles.card}>
         <View style={successStyles.row}>
-          <Image source={require('../../assets/images/car.png')} style={successStyles.icon} />
+          <Image source={require('@/assets/images/car.png')} style={successStyles.icon} />
           <Text style={successStyles.mainText}>
             Matching the Right Car to the Right Person—Not Just Selling One
           </Text>
@@ -126,7 +126,7 @@ function SuccessStories() {
       {/* 卡片 2 */}
       <View style={successStyles.card}>
         <View style={successStyles.row}>
-          <Image source={require('../../assets/images/key_hand.png')} style={successStyles.icon} />
+          <Image source={require('@/assets/images/key_hand.png')} style={successStyles.icon} />
           <Text style={successStyles.mainText}>
             From Hesitation to Confidence—Supporting a High-Stakes Upgrade
           </Text>
@@ -149,32 +149,32 @@ function AwardsRecognition() {
       title: 'Top Salesman Award (18×)',
       desc:
         'Over the course of my tenure at Major World I was honored with the Top Salesman Award 18 times — a reflection of consistent performance, customer trust, and my ability to exceed expectations in a highly competitive sales environment.',
-      img: require('../../assets/images/star_badge.png'),
+      img: require('@/assets/images/star_badge.png'),
     },
     {
       title: 'Employee of the Month – Spectrum (6×)',
       desc:
         'During my early career I was recognized six times as Employee of the Month at Spectrum for surpassing sales targets and delivering exceptional customer experiences — a foundation that continues to define my client-first approach.',
-      img: require('../../assets/images/profile_pic.png'),
+      img: require('@/assets/images/profile_pic.png'),
     },
     {
       title: 'Premier Ford’s Top Sales Generator (2014)',
       desc:
         'While at Premier Ford Lincoln, I led sales growth with a 70% year-over-year increase, earning formal recognition as the dealership’s top sales generator. My personal tracking system for leads and contracts later became a team-wide best practice.',
-      img: require('../../assets/images/2014_badge.png'),
+      img: require('@/assets/images/2014_badge.png'),
     },
     {
       title: 'Featured in Internal Newsletter – “Closer’s Spotlight”',
       desc:
         'My customer-first negotiation approach and consistently high conversion rate earned me a spotlight in Major World’s internal newsletter as an example for sales excellence.',
-      img: require('../../assets/images/star_badge_2.png'),
+      img: require('@/assets/images/star_badge_2.png'),
     },
   ];
 
   return (
     <View style={awardStyles.section}>
       <View style={awardStyles.headerRow}>
-        <Image source={require('../../assets/images/trophy.png')} style={awardStyles.headerIcon} />
+        <Image source={require('@/assets/images/trophy.png')} style={awardStyles.headerIcon} />
         <Text style={styles.sectionHeader}>Awards & Recognition</Text>
       </View>
 
