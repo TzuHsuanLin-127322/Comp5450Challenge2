@@ -1,3 +1,4 @@
+import { themeColors } from "@/components/commonStyle";
 import { router } from "expo-router";
 import { useState } from "react";
 import { Button, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
@@ -65,7 +66,7 @@ export default function ContactMeModal() {
               justifyContent: 'center',
               backgroundColor: 'white',
               borderWidth: 2,
-              borderColor: index === purpose ? 'salmon' : 'lightgray',
+              borderColor: index === purpose ? themeColors.secondary : 'lightgray',
               borderRadius: 100,
               minWidth: 56,
               padding: 8,
@@ -95,6 +96,7 @@ export default function ContactMeModal() {
       />
       <Button
         title="Submit"
+        color={themeColors.secondary}
         onPress={() => {
           router.back()
         }}

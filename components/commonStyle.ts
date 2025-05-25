@@ -1,5 +1,12 @@
 import { StyleProp, ViewStyle } from "react-native";
 
+export const themeColors = {
+    primary: 'black',
+    secondary: '#B03737',
+    background: 'white',
+    card: '#f5f5f5',
+}
+
 export const commonStyle: { [key: string]: StyleProp<ViewStyle> } = {
     centered: {
         justifyContent: 'center',
@@ -8,7 +15,7 @@ export const commonStyle: { [key: string]: StyleProp<ViewStyle> } = {
 
     homePortalButton: {
         margin: 8,
-        borderColor: 'gold',
+        borderColor: themeColors.secondary,
         borderWidth: 1
     },
 

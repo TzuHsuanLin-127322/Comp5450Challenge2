@@ -1,4 +1,4 @@
-import { commonStyle } from "@/components/commonStyle";
+import { commonStyle, themeColors } from "@/components/commonStyle";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
@@ -11,8 +11,6 @@ export default function Home() {
   const maxDimensions = Math.min(height, width);
 
   const { centered, homePortalButton } = commonStyle;
-
-  const portalContentColor = 'gold'
 
   const onAboutMePress = () => {
     console.log('About Me');
@@ -52,8 +50,9 @@ export default function Home() {
       />
       <View
         style={{
-          backgroundColor: 'black',
+          backgroundColor: themeColors.primary,
           flex: 1,
+          padding: 8
         }}
       >
         <View
@@ -67,15 +66,37 @@ export default function Home() {
             style={[{ flex: 1, }, homePortalButton, centered]}
             onPress={onAboutMePress}
           >
-            <Ionicons name="person-outline" size={48} color={portalContentColor} style={{ marginBottom: 8 }} />
-            <Text style={{ color: portalContentColor }}>About Me</Text>
+            <Ionicons
+              name="person-outline"
+              size={48}
+              color={themeColors.secondary}
+              style={{ marginBottom: 8 }}
+            />
+            <Text
+              style={{
+                color: themeColors.secondary,
+                fontSize: 16,
+                fontWeight: 'bold'
+              }}
+            >About Me</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[{ flex: 1, }, homePortalButton, centered]}
             onPress={onSalesPerformancePress}
           >
-            <Ionicons name="bar-chart-outline" size={48} color={portalContentColor} style={{ marginBottom: 8 }} />
-            <Text style={{ color: portalContentColor }}>Sales Performance</Text>
+            <Ionicons
+              name="bar-chart-outline"
+              size={48}
+              color={themeColors.secondary}
+              style={{ marginBottom: 8 }}
+            />
+            <Text
+              style={{
+                color: themeColors.secondary,
+                fontSize: 16,
+                fontWeight: 'bold'
+              }}
+            >Sales Performance</Text>
           </TouchableOpacity>
         </View>
 
@@ -90,15 +111,25 @@ export default function Home() {
             style={[{ flex: 1, }, homePortalButton, centered]}
             onPress={onServicesExpertisePress}
           >
-            <Ionicons name="people-outline" size={48} color={portalContentColor} style={{ marginBottom: 8 }} />
-            <Text style={{ color: portalContentColor }}>Services & Expertise</Text>
+            <Ionicons
+              name="people-outline"
+              size={48}
+              color={themeColors.secondary}
+              style={{ marginBottom: 8 }}
+            />
+            <Text
+              style={{
+                color: themeColors.secondary,
+                fontSize: 16,
+                fontWeight: 'bold'
+              }}>Services & Expertise</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[{ flex: 1, }, homePortalButton, centered]}
             onPress={onTestimonialsPress}
           >
-            <Ionicons name="star-outline" size={48} color={portalContentColor} style={{ marginBottom: 8 }} />
-            <Text style={{ color: portalContentColor }}>Testimonials</Text>
+            <Ionicons name="star-outline" size={48} color={themeColors.secondary} style={{ marginBottom: 8 }} />
+            <Text style={{ color: themeColors.secondary }}>Testimonials</Text>
           </TouchableOpacity>
         </View>
       </View>
