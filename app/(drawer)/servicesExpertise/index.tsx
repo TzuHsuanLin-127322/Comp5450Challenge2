@@ -1,6 +1,7 @@
 import { useNavigation } from "expo-router";
 import { useEffect } from "react";
 import { Text, View } from "react-native";
+import ServicesScreen from "./servicesExpertise";
 
 export default function ServicesExpertise() {
   const navigation = useNavigation();
@@ -12,14 +13,6 @@ export default function ServicesExpertise() {
   }, [navigation]);
 
   return (
-    <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Text>Services & Expertise</Text>
-      </View>
+      <ServicesScreen /> 
   );
 }
