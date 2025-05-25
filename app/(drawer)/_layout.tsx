@@ -21,7 +21,7 @@ const topBarIcons = () => (
         style={[commonStyle.iconButton]}
         onPress={() => {
           console.log("pencil-outline");
-          router.push('/contactMeModal');
+          router.push('/contactMe');
         }}
       >
         <Ionicons name="pencil" size={24} color="black" />

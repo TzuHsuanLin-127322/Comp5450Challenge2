@@ -5,15 +5,29 @@ export default function RootLayout() {
   return(
     <Stack>
       <Stack.Screen
-        name='drawer'
+        name='(drawer)'
         options={{
           headerShown: false,
         }}
       />
       <Stack.Screen
-        name='contactMeModal'
+        name='(modal)/contactMe'
         options={{
           title: 'Contact Me',
+          presentation: 'modal',
+        }}
+      />
+      <Stack.Screen
+        name='(modal)/salesCase1'
+        options={{
+          title: 'Sales Case 1',
+          presentation: 'modal',
+        }}
+      />
+      <Stack.Screen
+        name='(modal)/salesCase2'
+        options={{
+          title: 'Sales Case 2',
           presentation: 'modal',
         }}
       />

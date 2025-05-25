@@ -36,7 +36,7 @@ const GAUGE_IMAGES = [
 
 /* ---------- 主页面 ---------- */
 export default function SalesImpactDashboard() {
-  const carouselRef = useRef(null);
+  const carouselRef = useRef<ScrollView>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const carouselData = [
@@ -118,7 +118,7 @@ function SuccessStories() {
         <Text style={styles.description}>
           Earlier this year, worked a client who had recently relocated from a small town to the city. Early: looking for a compact SUV balancing fuel efficiency, urban drivability, and occasional long-distance travel.
         </Text>
-        <Pressable style={successStyles.button} onPress={() => router.push('/salesPerformance/Case_1')}>
+        <Pressable style={successStyles.button} onPress={() => router.push('/salesCase1')}>
           <Text style={successStyles.buttonText}>Learn More</Text>
         </Pressable>
       </View>
@@ -134,7 +134,7 @@ function SuccessStories() {
         <Text style={styles.description}>
           One of my most rewarding deals involved a client upgrading from a 10-year-old sedan to a family-friendly crossover.
         </Text>
-        <Pressable style={successStyles.button} onPress={() => router.push('/salesPerformance/Case_2')}>
+        <Pressable style={successStyles.button} onPress={() => router.push('/salesCase2')}>
           <Text style={successStyles.buttonText}>Learn More</Text>
         </Pressable>
       </View>
