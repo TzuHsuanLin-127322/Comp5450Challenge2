@@ -18,7 +18,7 @@ const ServicesScreen = () => (
 
         {/* Section: Services */}
         <ImageBackground
-            source={require('../assets/images/car_dealership.jpeg')}
+            source={require('@/assets/images/car_dealership.jpeg')}
             style={styles.section}
             blurRadius={3}
         >
@@ -150,7 +150,7 @@ const ServicesScreen = () => (
             {/* Partner Logos */}
             <View style={styles.galleryContainer}>
                 <Image
-                    source={require('../assets/images/carbrands-popular.png')}
+                    source={require('@/assets/images/carbrands-popular.png')}
                     style={styles.galleryImage}
                 />
             </View>
