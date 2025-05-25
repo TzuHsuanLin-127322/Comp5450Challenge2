@@ -1,35 +1,85 @@
-import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import { commonStyle } from "@/components/commonStyle";
+import React from "react";
+import { Dimensions, Image, Text, TouchableOpacity, View } from "react-native";
 
-export default function Index() {
+export default function Home() {
+  const { height, width } = Dimensions.get('window');
+  const maxDimensions = Math.min(height, width);
+
+  const { centered, homePortalButton } = commonStyle;
   return (
     <View
       style={{
+        width: '100%',
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        display: 'flex',
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-      {/* 新增跳转链接 */}
-      <Link
-        href="/Sales_performance"
+      <Image
+        resizeMode="contain"
+        source={require("@/assets/images/ashley_doyle_hero.png")}
         style={{
-          fontSize: 18,
-          color: "#1976d2",
-          textDecorationLine: "underline",
-          marginTop: 30,
+          width: maxDimensions,
+          height: maxDimensions,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: 'black',
+          flex: 1,
         }}
       >
-        View Sales Impact Dashboard
-      </Link>
-      {/* 新增跳转链接 */}
-      <Link href="/Case_1" asChild>
-        <Text>Case_1</Text>
-      </Link>
-      <Link href="/Case_2" asChild>
-        <Text>Case_1</Text>
-      </Link>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flex: 1
+          }}
+        >
+          <TouchableOpacity
+            style={[{ flex: 1, }, homePortalButton, centered]}
+            onPress={() => {
+              console.log('About Me');
+            }}
+          >
+            <Text style={{ color: 'gold' }}>About Me</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[{ flex: 1, }, homePortalButton, centered]}
+            onPress={() => {
+              console.log('Sales Performance');
+            }}
+          >
+            <Text style={{ color: 'gold' }}>Sales Performance</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flex: 1,
+          }}
+        >
+          <TouchableOpacity
+            style={[{ flex: 1, }, homePortalButton, centered]}
+            onPress={() => {
+              console.log('Services & Expertise');
+            }}
+          >
+            <Text style={{ color: 'gold' }}>Services & Expertise</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[{ flex: 1, }, homePortalButton, centered]}
+            onPress={() => {
+              console.log('Testimonials');
+            }}
+          >
+            <Text style={{color: 'gold'}}>Testimonials</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
     </View>
   );
 }
