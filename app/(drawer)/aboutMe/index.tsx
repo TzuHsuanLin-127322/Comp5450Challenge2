@@ -3,35 +3,34 @@ import * as SQLite from 'expo-sqlite';
 import React, { useEffect, useState } from 'react';
 import { Image, Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const db = SQLite.openDatabaseSync('mydb.db');
-db.execAsync(`
-  CREATE TABLE IF NOT EXISTS about_me (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    header TEXT,
-    paragraph TEXT
-  );
-`).then
-const existing = db.getAllSync('SELECT * FROM about_me;');
-if (existing.length === 0) {
-  db.execSync(`
-    INSERT INTO about_me (header, paragraph) VALUES
-    ('My Journey', 'With over 5 years in the automotive industry, I specialize in connecting people with the perfect vehicle for their lifestyle. I’ve helped more than 500 happy clients find their ideal cars while providing top-notch customer service and after-sales support.');
-  `);
-  db.execSync(`
-    INSERT INTO about_me (header, paragraph) VALUES
-    ('Education & Training', '🎓 MBA Student at Lakehead University\n📘 Certified in Automotive Sales & Customer Relations');
-  `);
-
-  db.execSync(`
-    INSERT INTO about_me (header, paragraph) VALUES
-    ('Work Experience', '🚗 Car Sales Consultant - 3+ years at Gisande Ltd.\n🔧 Automotive Assistant - Supported construction and maintenance crews.');
-  `);
-}
-
 export default function AboutMe() {
   const router = useRouter();
   const [aboutMe, setAboutMe] = useState<{header: string, paragraph: string}[]>([]);
   useEffect(() => {
+    const db = SQLite.openDatabaseSync('mydb.db');
+    db.execSync(`
+      CREATE TABLE IF NOT EXISTS about_me (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        header TEXT,
+        paragraph TEXT
+      );
+    `)
+    const existing = db.getAllSync('SELECT * FROM about_me;');
+    if (existing.length === 0) {
+      db.execSync(`
+        INSERT INTO about_me (header, paragraph) VALUES
+        ('My Journey', 'With over 5 years in the automotive industry, I specialize in connecting people with the perfect vehicle for their lifestyle. I’ve helped more than 500 happy clients find their ideal cars while providing top-notch customer service and after-sales support.');
+      `);
+      db.execSync(`
+        INSERT INTO about_me (header, paragraph) VALUES
+        ('Education & Training', '🎓 MBA Student at Lakehead University\n📘 Certified in Automotive Sales & Customer Relations');
+      `);
+    
+      db.execSync(`
+        INSERT INTO about_me (header, paragraph) VALUES
+        ('Work Experience', '🚗 Car Sales Consultant - 3+ years at Gisande Ltd.\n🔧 Automotive Assistant - Supported construction and maintenance crews.');
+      `);
+    }
     const result = db.getAllSync<{header: string, paragraph: string}>('SELECT * FROM about_me;');
     console.log(result);
     setAboutMe(result);
