@@ -10,9 +10,6 @@ export default function AboutMe() {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 30 }}>
-      {/* Header */}
-      <Text style={styles.title}>About Me</Text>
-
       {/* Profile Section */}
       <View style={styles.profileSection}>
         <Image
