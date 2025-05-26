@@ -8,15 +8,15 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const topBarIcons = () => (
     <>
-      {/* <TouchableOpacity
+      <TouchableOpacity
         style={[commonStyle.iconButton]}
         onPress={() => {
           console.log("person-circle-outline");
-          
+          router.push('/guestbook');
         }}
       >
         <Ionicons name="person" size={24} color="black" />
-      </TouchableOpacity> */}
+      </TouchableOpacity>
       <TouchableOpacity
         style={[commonStyle.iconButton]}
         onPress={() => {

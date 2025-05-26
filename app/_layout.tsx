@@ -20,6 +20,13 @@ export default function RootLayout() {
         }}
       />
       <Stack.Screen
+        name='(modal)/guestbook'
+        options={{
+          title: 'Guestbook',
+          presentation: 'modal',
+        }}
+      />
+      <Stack.Screen
         name='(modal)/salesCase1'
         options={{
           title: 'Sales Case 1',

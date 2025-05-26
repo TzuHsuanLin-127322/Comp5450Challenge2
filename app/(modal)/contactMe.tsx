@@ -1,6 +1,6 @@
 import { commonStyle, commonTextStyle, themeColors } from "@/components/commonStyle";
+import { useContactMeViewHolder } from "@/viewModels/contactMeViewHolder";
 import { router } from "expo-router";
-import { useState } from "react";
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const PURPOSE_OPTIONS = [
@@ -12,84 +12,18 @@ const PURPOSE_OPTIONS = [
 ];
 
 export default function ContactMeModal() {
-  const [name, setName] = useState<string>('');
-  const [nameError, setNameError] = useState<string | null>(null);
-  const [email, setEmail] = useState<string>('');
-  const [emailError, setEmailError] = useState<string | null>(null);
-  const [phone, setPhone] = useState<string>('');
-  const [phoneError, setPhoneError] = useState<string | null>(null);
-  const [purpose, setPurpose] = useState<number | null>(null);
-  const [purposeError, setPurposeError] = useState<string | null>(null);
-  const [message, setMessage] = useState<string>('');
+  const {
+    name, nameError, onNameChange, validateName,
+    email, emailError, onEmailChange, validateEmail,
+    phone, phoneError, onPhoneChange, validatePhone,
+    purpose, purposeError, onPurposeChange,
+    message, onMessageChange,
+    isFormValid,
+    onSubmit
+    // validateFields,
+  } = useContactMeViewHolder();
 
   const {baseTextInput} = commonTextStyle
-
-  // Individual validation functions
-  const validateName = () => {
-    if (name.trim() === '' || name === null || name === undefined) {
-      setNameError('Name is required');
-      return false;
-    } else {
-      setNameError(null);
-      return true;
-    }
-  };
-
-  const validateEmail = () => {
-    if (email.trim() === '' || email === null || email === undefined) {
-      setEmailError('Email is required');
-      return false;
-    }
-    
-    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
-    if (!emailRegex.test(email)) {
-      setEmailError('Please enter a valid email address');
-      return false;
-    }
-    
-    setEmailError(null);
-    return true;
-  };
-
-  const validatePhone = () => {
-    if (phone.trim() === '' || phone === null || phone === undefined) {
-      setPhoneError('Phone is required');
-      return false;
-    } else {
-      setPhoneError(null);
-      return true;
-    }
-  };
-
-  const validatePurpose = () => {
-    if (purpose === null) {
-      setPurposeError('Purpose is required');
-      return false;
-    } else {
-      setPurposeError(null);
-      return true;
-    }
-  };
-
-
-  // Helper to validate all fields
-  const validateFields = () => {
-    const nameValid = validateName();
-    const emailValid = validateEmail();
-    const phoneValid = validatePhone();
-    const purposeValid = validatePurpose();
-    return nameValid && emailValid && phoneValid && purposeValid;
-  };
-
-  // Helper to check if all required fields are filled
-  const isFormValid = () => {
-    return (
-      name.trim() !== '' && !nameError &&
-      email.trim() !== '' && !emailError &&
-      phone.trim() !== '' && !phoneError &&
-      purpose !== null && !purposeError
-    );
-  };
 
   return (
     <ScrollView
@@ -104,10 +38,7 @@ export default function ContactMeModal() {
       <TextInput
         placeholder="Name"
         value={name}
-        onChangeText={text => {
-          setName(text);
-          if (nameError) validateName();
-        }}
+        onChangeText={onNameChange}
         style={baseTextInput}
         onBlur={validateName}
       />
@@ -115,10 +46,7 @@ export default function ContactMeModal() {
       <TextInput
         placeholder="Email"
         value={email}
-        onChangeText={text => {
-          setEmail(text);
-          if (emailError) validateEmail();
-        }}
+        onChangeText={onEmailChange}
         style={baseTextInput}
         keyboardType="email-address"
         onBlur={validateEmail}
@@ -127,10 +55,7 @@ export default function ContactMeModal() {
       <TextInput
         placeholder="Phone"
         value={phone}
-        onChangeText={text => {
-          setPhone(text);
-          if (phoneError) validatePhone();
-        }}
+        onChangeText={onPhoneChange}
         style={baseTextInput}
         keyboardType="phone-pad"
         onBlur={validatePhone}
@@ -143,19 +68,16 @@ export default function ContactMeModal() {
             style={[
               commonStyle.chip,
               {
-                borderColor: index === purpose ? themeColors.secondary : 'lightgray',
+                borderColor: option === purpose ? themeColors.secondary : 'lightgray',
                 borderRadius: 100,
                 minWidth: 56,
                 margin: 8,
               }
             ]}
             key={index}
-            onPress={() => {
-              setPurpose(index);
-              if (purposeError) validatePurpose();
-            }}
+            onPress={() => onPurposeChange(option)}
           >
-            <Text style={{fontWeight: index === purpose ? "bold": "black"}}>{option}</Text>
+            <Text style={{fontWeight: option === purpose ? "bold": "black"}}>{option}</Text>
           </TouchableOpacity>
         ))}
       </View>
@@ -164,7 +86,7 @@ export default function ContactMeModal() {
       <TextInput
         placeholder="Message"
         value={message}
-        onChangeText={setMessage}
+        onChangeText={onMessageChange}
         style={[
           baseTextInput,
           {
@@ -177,18 +99,20 @@ export default function ContactMeModal() {
       <TouchableOpacity
         style={[
           {
-            backgroundColor: isFormValid() ? themeColors.secondary : 'gray',
+            backgroundColor: isFormValid ? themeColors.secondary : 'gray',
             paddingHorizontal: 8,
             paddingVertical: 16,
             marginVertical: 16,
             borderRadius: 100,
           }, commonStyle.centered,
         ]}
-        disabled={!isFormValid()}
+        disabled={!isFormValid}
         onPress={() => {
-          if (validateFields()) {
-            router.back();
-          }
+          console.log('onSubmit')
+          onSubmit().then(() => {
+            console.log('onSubmit done')
+            router.back()
+          })
         }}
       >
         <Text
