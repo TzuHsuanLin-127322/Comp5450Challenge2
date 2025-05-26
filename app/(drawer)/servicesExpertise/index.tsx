@@ -2,13 +2,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
 import { Dimensions, Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Colors } from './servicesTheme';
-
-export const ACHIEVEMENTS = [
-    { id: 1, title: "Top Salesman Award (18x)", icon: "🏆" },
-    { id: 2, title: "$50K/Quarter Saved", icon: "💰" },
-    { id: 3, title: "70% Sales Growth", icon: "📈" },
-    { id: 4, title: "$50M+ Sales", icon: "🚀" },
-];
+import {ACHIEVEMENTS} from './servicesData';
 
 const { width } = Dimensions.get('window');
 
@@ -87,8 +81,26 @@ const ServicesScreen = () => (
             </View>
         </ImageBackground>
 
+        {/* SECTION: INDUSTRY LEADERSHIP */}
+        <View style={[styles.section, { backgroundColor: Colors.background }]}>
+            <Text style={[styles.sectionTitle, { color: Colors.darkText }]}>INDUSTRY LEADERSHIP</Text>
+            <View style={styles.divider} />
+
+            <Text style={[styles.textBlockContent, { color: Colors.darkText }]}>
+                Partnering with top-tier automotive brands
+            </Text>
+
+            {/* Partner Logos */}
+            <View style={styles.galleryContainer}>
+                <Image
+                    source={require('@/assets/images/carbrands-popular.png')}
+                    style={styles.galleryImage}
+                />
+            </View>
+        </View>
+
         {/* SECTION: PREMIUM SERVICES */}
-        <View style={[styles.section, { backgroundColor: Colors.card }]}>
+        <View style={[styles.section, { backgroundColor: Colors.section }]}>
             <Text style={styles.sectionTitle}>PREMIUM SERVICES</Text>
             <View style={styles.divider} />
 
@@ -137,26 +149,8 @@ const ServicesScreen = () => (
             </View>
         </View>
 
-        {/* SECTION: INDUSTRY LEADERSHIP */}
-        <View style={[styles.section, { backgroundColor: Colors.background }]}>
-            <Text style={styles.sectionTitle}>INDUSTRY LEADERSHIP</Text>
-            <View style={styles.divider} />
-
-            <Text style={styles.textBlockContent}>
-                Partnering with top-tier automotive brands
-            </Text>
-
-            {/* Partner Logos */}
-            <View style={styles.galleryContainer}>
-                <Image
-                    source={require('@/assets/images/carbrands-popular.png')}
-                    style={styles.galleryImage}
-                />
-            </View>
-        </View>
-
         {/* SECTION: ACHIEVEMENT GALLERY */}
-        <View style={[styles.section, { backgroundColor: Colors.card }]}>
+        <View style={[styles.section, { backgroundColor: '#b2acac' }]}>
             <Text style={styles.sectionTitle}>ACHIEVEMENTS</Text>
             <View style={styles.divider} />
 
@@ -173,13 +167,21 @@ const ServicesScreen = () => (
 
         {/* Section: SUCCESS STORIES */}
         <View style={[styles.section, { backgroundColor: Colors.background }]}>
-            <Text style={styles.sectionTitle}>SUCCESS STORIES</Text>
+            <Text style={[styles.sectionTitle, { color: Colors.darkText }]}>MY BELIEF</Text>
             <View style={styles.divider} />
 
             <View style={styles.textBlock}>
                 <Text style={styles.textBlockContent}>
-                    Just a brief description that tells
-                    the story behind your work and passion for automotive excellence.
+                    My journey in automotive sales has always been driven by a simple belief:
+                </Text>
+                <Text style={[styles.textBlockContent, {fontWeight: 'bold'}]}>
+                    transparency transforms transactions.
+                </Text>
+                <Text style={styles.textBlockContent}>
+                    While others pushed inventory, I pioneered needs-based consulting. {'\n'}
+                    {'\n'}
+                    True value lives in the spark when a client finds their perfect vehicle –
+                    and knows they’re supported long after the keys are handed over.
                 </Text>
             </View>
 
@@ -268,7 +270,7 @@ const styles = StyleSheet.create({
         width: 150,
         padding: 20,
         margin: 10,
-        backgroundColor: '#2a2a2a',
+        backgroundColor: '#8b8b8b',
         alignItems: 'center',
         borderRadius: 8,
     },
@@ -322,14 +324,13 @@ const styles = StyleSheet.create({
 
     // Text Block
     textBlock: {
-        backgroundColor: Colors.card,
+        backgroundColor: '#f5f5f5',
         marginHorizontal: 20,
         padding: 25,
         marginTop: 5,
-        marginBottom: 20,
     },
     textBlockContent: {
-        color: Colors.lightText,
+        color: Colors.darkText,
         fontSize: 16,
         lineHeight: 24,
         textAlign: 'center',

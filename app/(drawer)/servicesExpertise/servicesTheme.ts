@@ -1,8 +1,9 @@
 export const Colors = {
     // Primary Colors
     color: '#B03737',
-    background: '#1A1A1A',
-    card: '#2a2a2a',
+    background: 'white',
+    section: '#373430',
+    card: '#4d4d4d',
 
     // Text Colors
     lightText: '#FFF',
