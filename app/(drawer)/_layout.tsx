@@ -50,6 +50,14 @@ const topBarIcons = () => (
             }}
           />
           <Drawer.Screen
+            name='currentDeals/index'
+            options={{
+              drawerLabel: 'Current Deals',
+              title: 'Current Deals',
+              headerRight: topBarIcons,
+            }}
+          />
+          <Drawer.Screen
             name='salesPerformance/index'
             options={{
               drawerLabel: 'Sales Performance',

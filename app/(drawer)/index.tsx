@@ -17,6 +17,11 @@ export default function Home() {
     router.push('/aboutMe');
   }
 
+  const onCurrentDealsPress = () => {
+      console.log('Current Deals');
+      router.push('/currentDeals');
+  }
+
   const onSalesPerformancePress = () => {
     console.log('Sales Performance');
     router.push('/salesPerformance');
@@ -76,6 +81,34 @@ export default function Home() {
               }}
             >
               About Me
+            </Text>
+            <Ionicons
+              name={"chevron-forward"}
+              size={24}
+              color={themeColors.background}
+            />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={homePortalItem}
+          onPress={onCurrentDealsPress}
+        >
+          <Ionicons
+              name="car-outline"
+              size={32}
+              color={themeColors.background}
+              style={{padding: 8}}
+            />
+            <Text
+              style={{
+                flex: 1,
+                color: themeColors.background,
+                fontSize: 16,
+                fontWeight: 'bold',
+                padding: 8
+              }}
+            >
+              Current Deals
             </Text>
             <Ionicons
               name={"chevron-forward"}
