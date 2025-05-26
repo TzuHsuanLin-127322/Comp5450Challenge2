@@ -1,10 +1,41 @@
 import { useRouter } from 'expo-router';
-import React from 'react';
+import * as SQLite from 'expo-sqlite';
+import React, { useEffect, useState } from 'react';
 import { Image, Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+const db = SQLite.openDatabaseSync('mydb.db');
+db.execAsync(`
+  CREATE TABLE IF NOT EXISTS about_me (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    header TEXT,
+    paragraph TEXT
+  );
+`).then
+const existing = db.getAllSync('SELECT * FROM about_me;');
+if (existing.length === 0) {
+  db.execSync(`
+    INSERT INTO about_me (header, paragraph) VALUES
+    ('My Journey', 'With over 5 years in the automotive industry, I specialize in connecting people with the perfect vehicle for their lifestyle. I’ve helped more than 500 happy clients find their ideal cars while providing top-notch customer service and after-sales support.');
+  `);
+  db.execSync(`
+    INSERT INTO about_me (header, paragraph) VALUES
+    ('Education & Training', '🎓 MBA Student at Lakehead University\n📘 Certified in Automotive Sales & Customer Relations');
+  `);
+
+  db.execSync(`
+    INSERT INTO about_me (header, paragraph) VALUES
+    ('Work Experience', '🚗 Car Sales Consultant - 3+ years at Gisande Ltd.\n🔧 Automotive Assistant - Supported construction and maintenance crews.');
+  `);
+}
 
 export default function AboutMe() {
   const router = useRouter();
-
+  const [aboutMe, setAboutMe] = useState<{header: string, paragraph: string}[]>([]);
+  useEffect(() => {
+    const result = db.getAllSync<{header: string, paragraph: string}>('SELECT * FROM about_me;');
+    console.log(result);
+    setAboutMe(result);
+  }, []);
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 30 }}>
       {/* Header */}
@@ -29,23 +60,15 @@ export default function AboutMe() {
         <Image source={require('@/assets/images/car4.jpeg')} style={{ width: 120, height: 70, borderRadius: 8, marginRight: 8 }} />
       </ScrollView>
 
-      {/* Introduction */}
-      <Text style={styles.sectionTitle}>My Journey</Text>
-      <Text style={styles.paragraph}>
-        With over 5 years in the automotive industry, I specialize in connecting people with the perfect vehicle
-        for their lifestyle. I’ve helped more than 500 happy clients find their ideal cars while providing 
-        top-notch customer service and after-sales support.
-      </Text>
-
-      {/* Education & Training */}
-      <Text style={styles.sectionTitle}>Education & Training</Text>
-      <Text style={styles.paragraph}>🎓 MBA Student at Lakehead University</Text>
-      <Text style={styles.paragraph}>📘 Certified in Automotive Sales & Customer Relations</Text>
-
-      {/* Experience */}
-      <Text style={styles.sectionTitle}>Work Experience</Text>
-      <Text style={styles.paragraph}>🚗 Car Sales Consultant - 3+ years at Gisande Ltd.</Text>
-      <Text style={styles.paragraph}>🔧 Automotive Assistant - Supported construction and maintenance crews.</Text>
+      {aboutMe.map((item, index) => (
+        <View key={index}>
+          <Text style={styles.sectionTitle}>{item.header}</Text>
+          {item.paragraph.split('\n').map(((paragraph,index) => (
+            <Text key={index} style={styles.paragraph}>{paragraph}</Text>
+          )))}
+          
+        </View>
+      ))}
 
       {/* Contact Links */}
       <Text style={styles.sectionTitle}>Connect With Me</Text>
