@@ -33,15 +33,24 @@ export const commonStyle: { [key: string]: StyleProp<ViewStyle> } = {
         margin: 8,
         justifyContent: "center",
         alignItems: "center",
+    },
+
+    chip: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderRadius: 100,
+        minWidth: 56,
+        padding: 8,
     }
 }
 
 export const commonTextStyle = {
-        baseTextInput: {
+    baseTextInput: {
         borderWidth: 1,
         borderColor: 'lightgray',
         borderRadius: 8,
         padding: 8,
-        marginVertical: 8,
     },
 }
