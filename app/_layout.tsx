@@ -1,11 +1,13 @@
 import { Stack } from "expo-router";
+import { SQLiteProvider } from "expo-sqlite";
 import React from "react";
 
 export default function RootLayout() {
   return(
-    <Stack>
-      <Stack.Screen
-        name='(drawer)'
+    <SQLiteProvider databaseName="carProfile.db" useSuspense={true}>
+      <Stack>
+        <Stack.Screen
+          name='(drawer)'
         options={{
           headerShown: false,
         }}
@@ -32,5 +34,6 @@ export default function RootLayout() {
         }}
       />
     </Stack>    
+  </SQLiteProvider>
   );
 }

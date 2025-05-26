@@ -1,40 +1,13 @@
+import { aboutMeCarImage } from '@/utils/imageUtils';
+import useAboutMeViewHolder from '@/viewModels/aboutMeViewHolder';
 import { useRouter } from 'expo-router';
-import * as SQLite from 'expo-sqlite';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Image, Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function AboutMe() {
   const router = useRouter();
-  const [aboutMe, setAboutMe] = useState<{header: string, paragraph: string}[]>([]);
-  useEffect(() => {
-    const db = SQLite.openDatabaseSync('mydb.db');
-    db.execSync(`
-      CREATE TABLE IF NOT EXISTS about_me (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        header TEXT,
-        paragraph TEXT
-      );
-    `)
-    const existing = db.getAllSync('SELECT * FROM about_me;');
-    if (existing.length === 0) {
-      db.execSync(`
-        INSERT INTO about_me (header, paragraph) VALUES
-        ('My Journey', 'With over 5 years in the automotive industry, I specialize in connecting people with the perfect vehicle for their lifestyle. I’ve helped more than 500 happy clients find their ideal cars while providing top-notch customer service and after-sales support.');
-      `);
-      db.execSync(`
-        INSERT INTO about_me (header, paragraph) VALUES
-        ('Education & Training', '🎓 MBA Student at Lakehead University\n📘 Certified in Automotive Sales & Customer Relations');
-      `);
-    
-      db.execSync(`
-        INSERT INTO about_me (header, paragraph) VALUES
-        ('Work Experience', '🚗 Car Sales Consultant - 3+ years at Gisande Ltd.\n🔧 Automotive Assistant - Supported construction and maintenance crews.');
-      `);
-    }
-    const result = db.getAllSync<{header: string, paragraph: string}>('SELECT * FROM about_me;');
-    console.log(result);
-    setAboutMe(result);
-  }, []);
+  const {aboutMe, featuredCars} = useAboutMeViewHolder();
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 30 }}>
       {/* Header */}
@@ -53,10 +26,9 @@ export default function AboutMe() {
       {/* Car Gallery */}
       <Text style={styles.sectionTitle}>Featured Cars</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginVertical: 8 }}>
-        <Image source={require('@/assets/images/car1.jpeg')} style={{ width: 120, height: 70, borderRadius: 8, marginRight: 8 }} />
-        <Image source={require('@/assets/images/car2.jpeg')} style={{ width: 120, height: 70, borderRadius: 8, marginRight: 8 }} />
-        <Image source={require('@/assets/images/car3.jpeg')} style={{ width: 120, height: 70, borderRadius: 8, marginRight: 8 }} />
-        <Image source={require('@/assets/images/car4.jpeg')} style={{ width: 120, height: 70, borderRadius: 8, marginRight: 8 }} />
+        {featuredCars.map((car, index) => (
+          <Image key={index} source={aboutMeCarImage[car.imagePath]} style={{ width: 120, height: 70, borderRadius: 8, marginRight: 8 }} />
+        ))}
       </ScrollView>
 
       {aboutMe.map((item, index) => (
