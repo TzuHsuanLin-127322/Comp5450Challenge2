@@ -1,12 +1,12 @@
 import { aboutMeCarImage } from '@/utils/imageUtils';
-import useAboutMeViewHolder from '@/viewModels/aboutMeViewHolder';
+import useAboutMeViewModel from '@/viewModels/aboutMeViewModel';
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { Image, Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function AboutMe() {
   const router = useRouter();
-  const {aboutMe, featuredCars} = useAboutMeViewHolder();
+  const {aboutMe, featuredCars} = useAboutMeViewModel();
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 30 }}>

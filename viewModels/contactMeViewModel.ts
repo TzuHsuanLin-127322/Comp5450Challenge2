@@ -1,7 +1,7 @@
 import { useSQLiteContext } from "expo-sqlite"
 import { useEffect, useState } from "react"
 
-export const useContactMeViewHolder = () => {
+export const useContactMeViewModel = () => {
   const db = useSQLiteContext()
 
   const [name, setName] = useState<string>('')

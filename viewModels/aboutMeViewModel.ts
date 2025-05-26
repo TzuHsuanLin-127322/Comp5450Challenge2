@@ -2,7 +2,7 @@ import { useSQLiteContext } from "expo-sqlite";
 import { useEffect, useState } from "react";
 
 
-export default function useAboutMeViewHolder() {
+export default function useAboutMeViewModel() {
   const db = useSQLiteContext();
   const [featuredCars, setFeaturedCars] = useState<{ imagePath: string }[]>([]);
   const [aboutMe, setAboutMe] = useState<{ header: string, paragraph: string }[]>([]);

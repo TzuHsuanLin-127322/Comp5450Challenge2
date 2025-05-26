@@ -10,7 +10,7 @@ export type ContactMeItem = {
     message: string,
 }
 
-export const useGuestbookViewHolder = () => {
+export const useGuestbookViewModel = () => {
     const db = useSQLiteContext();
     const [guestbook, setGuestbook] = useState<ContactMeItem[]>([]);
 

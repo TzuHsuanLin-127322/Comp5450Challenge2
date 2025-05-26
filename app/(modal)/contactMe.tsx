@@ -1,5 +1,5 @@
 import { commonStyle, commonTextStyle, themeColors } from "@/components/commonStyle";
-import { useContactMeViewHolder } from "@/viewModels/contactMeViewHolder";
+import { useContactMeViewModel } from "@/viewModels/contactMeViewModel";
 import { router } from "expo-router";
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
@@ -21,7 +21,7 @@ export default function ContactMeModal() {
     isFormValid,
     onSubmit
     // validateFields,
-  } = useContactMeViewHolder();
+  } = useContactMeViewModel();
 
   const {baseTextInput} = commonTextStyle
 

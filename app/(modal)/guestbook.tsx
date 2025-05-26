@@ -1,10 +1,10 @@
-import { ContactMeItem, useGuestbookViewHolder } from "@/viewModels/guestbookViewHolder";
+import { ContactMeItem, useGuestbookViewModel } from "@/viewModels/guestbookViewModel";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { FlatList, Modal, Text, TouchableOpacity, View } from "react-native";
 
 export default function GuestbookModal() {
-  const { guestbook, deleteGuestBookItem } = useGuestbookViewHolder()
+  const { guestbook, deleteGuestBookItem } = useGuestbookViewModel()
   const [selectedItem, setSelectedItem] = useState<ContactMeItem | null>(null)
   const [isModalVisible, setIsModalVisible] = useState(false)
 
