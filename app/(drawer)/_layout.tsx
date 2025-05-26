@@ -15,7 +15,7 @@ const topBarIcons = () => (
           
         }}
       >
-        <Ionicons name="person-circle-outline" size={24} color="black" />
+        <Ionicons name="person" size={24} color="black" />
       </TouchableOpacity>
       <TouchableOpacity
         style={[commonStyle.iconButton]}
@@ -24,7 +24,7 @@ const topBarIcons = () => (
           router.push('/contactMe');
         }}
       >
-        <Ionicons name="pencil" size={24} color="black" />
+        <Ionicons name="call" size={24} color="black" />
       </TouchableOpacity>
     </>
   )

@@ -10,7 +10,7 @@ export default function Home() {
   const { height, width } = Dimensions.get('window');
   const maxDimensions = Math.min(height, width);
 
-  const { centered, homePortalButton } = commonStyle;
+  const { centered, homePortalItem } = commonStyle;
 
   const onAboutMePress = () => {
     console.log('About Me');
@@ -43,10 +43,10 @@ export default function Home() {
       <Image
         resizeMode="contain"
         source={require("@/assets/images/ashley_doyle_hero.png")}
-        style={{
+        style={[{
           width: maxDimensions,
           height: maxDimensions,
-        }}
+        }]}
       />
       <View
         style={{
@@ -55,93 +55,118 @@ export default function Home() {
           padding: 8
         }}
       >
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flex: 1
-          }}
-        >
-          <TouchableOpacity
-            style={[{ flex: 1, }, homePortalButton, centered]}
-            onPress={onAboutMePress}
-          >
-            <Ionicons
-              name="person-outline"
-              size={48}
-              color={themeColors.secondary}
-              style={{ marginBottom: 8 }}
-            />
-            <Text
-              style={{
-                color: themeColors.secondary,
-                fontSize: 16,
-                fontWeight: 'bold'
-              }}
-            >About Me</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[{ flex: 1, }, homePortalButton, centered]}
-            onPress={onSalesPerformancePress}
-          >
-            <Ionicons
-              name="bar-chart-outline"
-              size={48}
-              color={themeColors.secondary}
-              style={{ marginBottom: 8 }}
-            />
-            <Text
-              style={{
-                color: themeColors.secondary,
-                fontSize: 16,
-                fontWeight: 'bold'
-              }}
-            >Sales Performance</Text>
-          </TouchableOpacity>
-        </View>
 
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flex: 1,
-          }}
+        <TouchableOpacity
+          style={homePortalItem}
+          onPress={onAboutMePress}
         >
-          <TouchableOpacity
-            style={[{ flex: 1, }, homePortalButton, centered]}
-            onPress={onServicesExpertisePress}
-          >
+          <Ionicons
+              name="bar-chart-outline"
+              size={32}
+              color={themeColors.background}
+              style={{padding: 8}}
+            />
+            <Text
+              style={{
+                flex: 1,
+                color: themeColors.background,
+                fontSize: 16,
+                fontWeight: 'bold',
+                padding: 8
+              }}
+            >
+              About Me
+            </Text>
             <Ionicons
+              name={"chevron-forward"}
+              size={24}
+              color={themeColors.background}
+            />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={homePortalItem}
+          onPress={onSalesPerformancePress}
+        >
+          <Ionicons
+              name="person-outline"
+              size={32}
+              color={themeColors.background}
+              style={{padding: 8}}
+            />
+            <Text
+              style={{
+                flex: 1,
+                color: themeColors.background,
+                fontSize: 16,
+                fontWeight: 'bold',
+                padding: 8
+              }}
+            >
+              Sales Performance
+            </Text>
+            <Ionicons
+              name={"chevron-forward"}
+              size={24}
+              color={themeColors.background}
+            />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={homePortalItem}
+          onPress={onServicesExpertisePress}
+        >
+          <Ionicons
               name="people-outline"
-              size={48}
-              color={themeColors.secondary}
-              style={{ marginBottom: 8 }}
+              size={32}
+              color={themeColors.background}
+              style={{padding: 8}}
             />
             <Text
               style={{
-                color: themeColors.secondary,
+                flex: 1,
+                color: themeColors.background,
                 fontSize: 16,
-                fontWeight: 'bold'
-              }}>Services & Expertise</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[{ flex: 1, }, homePortalButton, centered]}
-            onPress={onCustomerSatisfactionPress}
-          >
+                fontWeight: 'bold',
+                padding: 8
+              }}
+            >
+              Services & Expertise
+            </Text>
             <Ionicons
+              name={"chevron-forward"}
+              size={24}
+              color={themeColors.background}
+            />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={homePortalItem}
+          onPress={onCustomerSatisfactionPress}
+        >
+          <Ionicons
               name="star-outline"
-              size={48}
-              color={themeColors.secondary}
-              style={{ marginBottom: 8 }}
+              size={32}
+              color={themeColors.background}
+              style={{padding: 8}}
             />
             <Text
               style={{
-                color: themeColors.secondary,
+                flex: 1,
+                color: themeColors.background,
                 fontSize: 16,
-                fontWeight: 'bold'
-              }}>Customer Satisfaction</Text>
-          </TouchableOpacity>
-        </View>
+                fontWeight: 'bold',
+                padding: 8
+              }}
+            >
+              Customer Satisfaction
+            </Text>
+            <Ionicons
+              name={"chevron-forward"}
+              size={24}
+              color={themeColors.background}
+            />
+        </TouchableOpacity>
       </View>
     </View>
   );

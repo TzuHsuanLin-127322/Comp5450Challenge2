@@ -1,4 +1,4 @@
-import { commonStyle, themeColors } from "@/components/commonStyle";
+import { commonStyle, commonTextStyle, themeColors } from "@/components/commonStyle";
 import { router } from "expo-router";
 import { useState } from "react";
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
@@ -18,6 +18,8 @@ export default function ContactMeModal() {
   const [purpose, setPurpose] = useState<number | null>(null);
   const [message, setMessage] = useState<string>('');
 
+  const {baseTextInput} = commonTextStyle
+
   return (
     <ScrollView
       style={{
@@ -30,31 +32,22 @@ export default function ContactMeModal() {
       <Text style={{ fontSize: 16, fontWeight: 'bold', marginTop: 16 }}>Contact Information</Text>
       <TextInput
         placeholder="Name"
-        style={{
-          borderWidth: 1,
-          borderColor: 'gray',
-          padding: 8,
-          margin: 8,
-        }}
+        value={name}
+        onChangeText={setName}
+        style={baseTextInput}
       />
       <TextInput
         placeholder="Email"
-        style={{
-          borderWidth: 1,
-          borderColor: 'gray',
-          padding: 8,
-          margin: 8,
-        }}
+        value={email}
+        onChangeText={setEmail}
+        style={baseTextInput}
         keyboardType="email-address"
       />
       <TextInput
         placeholder="Phone"
-        style={{
-          borderWidth: 1,
-          borderColor: 'gray',
-          padding: 8,
-          margin: 8,
-        }}
+        value={phone}
+        onChangeText={setPhone}
+        style={baseTextInput}
         keyboardType="phone-pad"
       />
       <Text style={{ fontSize: 16, fontWeight: 'bold', marginTop: 16 }}>Purpose</Text>
@@ -65,18 +58,17 @@ export default function ContactMeModal() {
               alignItems: 'center',
               justifyContent: 'center',
               backgroundColor: 'white',
-              borderWidth: 2,
+              borderWidth: 1,
               borderColor: index === purpose ? themeColors.secondary : 'lightgray',
               borderRadius: 100,
               minWidth: 56,
               padding: 8,
               margin: 8,
-              elevation: 4
             }}
             key={index}
             onPress={() => setPurpose(index)}
           >
-            <Text>{option}</Text>
+            <Text style={{fontWeight: index === purpose ? "bold": "black"}}>{option}</Text>
           </TouchableOpacity>
         ))}
       </View>
@@ -84,21 +76,24 @@ export default function ContactMeModal() {
       <Text style={{ fontSize: 16, fontWeight: 'bold', marginTop: 16 }}>Message</Text>
       <TextInput
         placeholder="Message"
-        style={{
-          borderWidth: 1,
-          borderColor: 'gray',
-          padding: 8,
-          margin: 8,
-          minHeight: 100,
-          textAlignVertical: 'top',
-        }}
+        value={message}
+        onChangeText={setMessage}
+        style={[
+          baseTextInput,
+          {
+            minHeight: 100,
+            textAlignVertical: 'top',
+          }
+        ]}
         multiline={true}
       />
       <TouchableOpacity
         style={[
           {
             backgroundColor: themeColors.secondary,
-            padding: 8,
+            paddingHorizontal: 8,
+            paddingVertical: 16,
+            marginVertical: 16,
             borderRadius: 100,
           }, commonStyle.centered,
         ]}
