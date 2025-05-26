@@ -13,10 +13,13 @@ export const commonStyle: { [key: string]: StyleProp<ViewStyle> } = {
         alignItems: 'center',
     },
 
-    homePortalButton: {
-        margin: 8,
-        borderColor: themeColors.secondary,
-        borderWidth: 1
+    homePortalItem: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingVertical: 8,
+        borderBottomColor: '#4c4c4c',
+        borderBottomWidth: 1
     },
 
     redBackground: {
@@ -30,6 +33,15 @@ export const commonStyle: { [key: string]: StyleProp<ViewStyle> } = {
         margin: 8,
         justifyContent: "center",
         alignItems: "center",
-        borderWidth: 1,
     }
+}
+
+export const commonTextStyle = {
+        baseTextInput: {
+        borderWidth: 1,
+        borderColor: 'lightgray',
+        borderRadius: 8,
+        padding: 8,
+        marginVertical: 8,
+    },
 }
