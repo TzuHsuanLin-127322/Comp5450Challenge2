@@ -3,8 +3,10 @@ import React from 'react';
 import { Dimensions, Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Colors } from './servicesTheme';
 import {ACHIEVEMENTS} from './servicesData';
+import { useRouter } from "expo-router";
 
 const { width } = Dimensions.get('window');
+const router = useRouter();
 
 const ServicesScreen = () => (
     <ScrollView style={styles.container}>
@@ -188,7 +190,7 @@ const ServicesScreen = () => (
             <View style={styles.galleryContainer}>
                 <TouchableOpacity
                     style={styles.ctaButton}
-                //onPress={() => navigation.navigate('SuccessStories')}
+                    onPress={() => router.push('/customerSatisfaction')}
                 >
                     <Text style={styles.ctaText}>View Client Testimonials →</Text>
                 </TouchableOpacity>
