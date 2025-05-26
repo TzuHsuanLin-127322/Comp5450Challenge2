@@ -13,7 +13,7 @@ export default function AboutMe() {
       {/* Profile Section */}
       <View style={styles.profileSection}>
         <Image
-          source={require('@/assets/images/profile.jpg')}
+          source={require('@/assets/images/ashley_doyle_portrait.png')}
           style={styles.profileImage}
         />
         <Text style={styles.name}>Ashley Doyle</Text>
