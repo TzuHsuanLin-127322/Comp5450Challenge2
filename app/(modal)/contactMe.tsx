@@ -21,7 +21,6 @@ export default function ContactMeModal() {
   const [purpose, setPurpose] = useState<number | null>(null);
   const [purposeError, setPurposeError] = useState<string | null>(null);
   const [message, setMessage] = useState<string>('');
-  const [messageError, setMessageError] = useState<string | null>(null);
 
   const {baseTextInput} = commonTextStyle
 
@@ -175,7 +174,6 @@ export default function ContactMeModal() {
         ]}
         multiline={true}
       />
-      <Text style={{ fontSize: 12, fontWeight: 'bold', marginBottom: 8, color: 'red' }}>{messageError}</Text>
       <TouchableOpacity
         style={[
           {
