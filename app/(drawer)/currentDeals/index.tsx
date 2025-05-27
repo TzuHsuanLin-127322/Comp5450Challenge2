@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
-import { View, Text, ImageBackground, StyleSheet, Pressable, Dimensions, ScrollView, FlatList } from 'react-native';
-import Carousel from 'react-native-reanimated-carousel';
-import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialIcons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
+import React, { useRef, useState } from 'react';
+import { Dimensions, FlatList, ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import Carousel from 'react-native-reanimated-carousel';
 
 interface CarItem {
     id: string;
@@ -121,12 +121,12 @@ const DealsCarousel = () => {
                     style={styles.gradient}
                 >
                     <View style={styles.header}>
-                        <Pressable style={styles.iconButton}>
+                        {/* <Pressable style={styles.iconButton}>
                             <MaterialIcons name="favorite-border" size={24} color="white" />
                         </Pressable>
                         <Pressable style={styles.iconButton}>
                             <MaterialIcons name="share" size={24} color="white" />
-                        </Pressable>
+                        </Pressable> */}
                     </View>
 
                     <View style={styles.details}>

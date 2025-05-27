@@ -53,17 +53,6 @@ export default function AboutMe() {
           <Text style={styles.link}>🔗 LinkedIn</Text>
         </TouchableOpacity>
       </View>
-
-      {/* Navigation Bar */}
-      <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20, borderTopWidth: 1, borderTopColor: '#eee', paddingTop: 10 }}>
-        <TouchableOpacity onPress={() => router.push('/')}>
-          <Text style={[styles.link, { color: '#007aff', fontWeight: 'bold' }]}>Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => router.push('/aboutMe')}>
-          <Text style={[styles.link, { color: '#007aff', fontWeight: 'bold' }]}>About</Text>
-        </TouchableOpacity>
-        {/* Add more links as needed */}
-      </View>
     </ScrollView>
   );
 };
