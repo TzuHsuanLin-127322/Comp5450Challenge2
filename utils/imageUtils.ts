@@ -17,5 +17,5 @@ export const currentDealsCarImage: Record<string, ImageSourcePropType> = {
     'ChevroletCamaro.png': require('@/assets/images/cars/ChevroletCamaro.png'),
     'Mercedes-BenzS-Class.png': require('@/assets/images/cars/Mercedes-BenzS-Class.png'),
     'AudiE-tron.png': require('@/assets/images/cars/AudiE-tron.png'),
-    'AudiE-JeepWranglerRubicon.png': require('@/assets/images/cars/JeepWranglerRubicon.png'),
+    'JeepWranglerRubicon.png': require('@/assets/images/cars/JeepWranglerRubicon.png'),
 }
