@@ -1,3 +1,4 @@
+import { currentDealsCarImage } from '@/utils/imageUtils';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useRef, useState } from 'react';
@@ -5,10 +6,10 @@ import { Dimensions, FlatList, ImageBackground, Pressable, StyleSheet, Text, Vie
 import Carousel from 'react-native-reanimated-carousel';
 
 interface CarItem {
-    id: string;
+    id: number;
     model: string;
     price: string;
-    image: any;
+    image: string;
     mileage: string;
     year: string;
     horsepower: string;
@@ -16,91 +17,91 @@ interface CarItem {
 
 const dealsData: CarItem[] = [
     {
-        id: '1',
+        id: 1,
         model: '2022 BMW M5 Competition',
         price: '$112,995',
-        image: require('@/assets/images/cars/BMWM5E60.png'),
+        image: 'BMWM5E60.png',
         mileage: '12,300 mi',
         year: '2022',
         horsepower: '617 hp',
     },
     {
-        id: '2',
+        id: 2,
         model: '2021 Ford Mustang Mach-E GT',
         price: '$58,800',
-        image: require('@/assets/images/cars/FordMustang.png'),
+        image: 'FordMustang.png',
         mileage: '8,900 mi',
         year: '2021',
         horsepower: '480 hp',
     },
     {
-        id: '3',
+        id: 3,
         model: '2023 Tesla Model S Plaid',
         price: '$94,990',
-        image: require('@/assets/images/cars/2023TeslaModelS.jpg'),
+        image: '2023TeslaModelS.jpg',
         mileage: '500 mi',
         year: '2023',
         horsepower: '1,020 hp',
     },
     {
-        id: '4',
+        id: 4,
         model: '2020 Toyota Camry XSE',
         price: '$28,450',
-        image: require('@/assets/images/cars/ToyotaCamry.png'),
+        image: 'ToyotaCamry.png',
         mileage: '34,500 mi',
         year: '2020',
         horsepower: '301 hp',
     },
     {
-        id: '5',
+        id: 5,
         model: '2023 Porsche 911 Carrera 4S',
         price: '$142,000',
-        image: require('@/assets/images/cars/Porsche911.png'),
+        image: 'Porsche911.png',
         mileage: '2,200 mi',
         year: '2023',
         horsepower: '379 hp',
     },
     {
-        id: '6',
+        id: 6,
         model: '2022 Honda Civic FD',
         price: '$33,999',
-        image: require('@/assets/images/cars/HondaCivicFD.png'),
+        image: 'HondaCivicFD.png',
         mileage: '15,800 mi',
         year: '2022',
         horsepower: '190 hp',
     },
     {
-        id: '7',
+        id: 7,
         model: '2019 Chevrolet Camaro',
         price: '$62,500',
-        image: require('@/assets/images/cars/ChevroletCamaro.png'),
+        image: 'ChevroletCamaro.png',
         mileage: '9,100 mi',
         year: '2019',
         horsepower: '355 hp',
     },
     {
-        id: '8',
+        id: 8,
         model: '2021 Mercedes-Benz S-Class W 140',
         price: '$118,900',
-        image: require('@/assets/images/cars/Mercedes-BenzS-Class.png'),
+        image: 'Mercedes-BenzS-Class.png',
         mileage: '18,400 mi',
         year: '2021',
         horsepower: '496 hp',
     },
     {
-        id: '9',
+        id: 9,
         model: '2023 Audi e-tron GT',
         price: '$105,000',
-        image: require('@/assets/images/cars/AudiE-tron.png'),
+        image: 'AudiE-tron.png',
         mileage: '3,400 mi',
         year: '2023',
         horsepower: '522 hp',
     },
     {
-        id: '10',
+        id: 10,
         model: '2022 Jeep Wrangler Rubicon',
         price: '$48,750',
-        image: require('@/assets/images/cars/JeepWranglerRubicon.png'),
+        image: 'JeepWranglerRubicon.png',
         mileage: '22,000 mi',
         year: '2022',
         horsepower: '285 hp',
@@ -115,7 +116,7 @@ const DealsCarousel = () => {
 
     const renderItem = ({ item }: { item: CarItem }) => (
         <View style={styles.carouselItem}>
-            <ImageBackground source={item.image} style={styles.image}>
+            <ImageBackground source={currentDealsCarImage[item.image]} style={styles.image}>
                 <LinearGradient
                     colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.8)']}
                     style={styles.gradient}
@@ -185,7 +186,7 @@ const DealsScreen = () => {
   return (
     <FlatList
       data={dealsData}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item.model}
       ListHeaderComponent={
         <View style={styles.carouselPadding}>
           <DealsCarousel />
@@ -196,7 +197,7 @@ const DealsScreen = () => {
           style={styles.listItem}
         >
           <ImageBackground 
-            source={item.image} 
+            source={currentDealsCarImage[item.image]} 
             style={styles.listImage}
           >
             <LinearGradient
