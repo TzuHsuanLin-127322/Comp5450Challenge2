@@ -109,10 +109,8 @@ export default function ContactMeModal() {
         disabled={!isFormValid}
         onPress={() => {
           console.log('onSubmit')
-          onSubmit().then(() => {
-            console.log('onSubmit done')
-            router.back()
-          })
+          onSubmit()
+          router.back()
         }}
       >
         <Text

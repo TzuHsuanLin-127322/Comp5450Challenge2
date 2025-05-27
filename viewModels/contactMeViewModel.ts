@@ -112,7 +112,7 @@ export const useContactMeViewModel = () => {
     }
   }
 
-  const onSubmit = async() => {
+  const onSubmit = () => {
     console.log('onSubmit')
     const isNameValid = validateName()
     const isEmailValid = validateEmail()
@@ -129,15 +129,10 @@ export const useContactMeViewModel = () => {
     
     initDB()
     console.log('initDB done')
-    try {
-      db.execSync(`
-        INSERT INTO contact_me (name, email, phone, purpose, message) VALUES
-        ('${name}', '${email}', '${phone}', '${purpose}', '${message}');
-      `)
-      console.log('insert done')
-    } catch (error) {
-      console.log('insert error', error)
-    }
+    db.runSync(
+      'INSERT INTO contact_me (name, email, phone, purpose, message) VALUES (?, ?, ?, ?, ?)',
+      [name, email, phone, purpose, message]
+    )
   }
 
   return {
