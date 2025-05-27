@@ -69,6 +69,7 @@ export default function GuestbookModal() {
         backgroundColor:
         'white',
         padding: 16,
+        margin: 8,
         borderRadius: 8,
         elevation: 4,
         alignItems: 'center',
@@ -111,7 +112,7 @@ export default function GuestbookModal() {
   return (
     <>
       <FlatList
-        style={{flex: 1, padding: 16}}
+        style={{flex: 1, padding: 8,}}
         data={guestbook}
         renderItem={({ item }) => makeCard(item)}
       />
